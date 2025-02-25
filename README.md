@@ -29,10 +29,6 @@ python -m venv venv
 source venv/bin/activate  # For Linux/macOS
 venv\Scripts\activate     # For Windows
 ```
-As a result, the dataset is randomly split for 5 times, which are saved as json file.
-
-Train and test codes are written in `main.py`. To see the detailed arguments, please do `python main.py -h`.
-
 
 ## Folder Structure
 ```bash
