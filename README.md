@@ -72,9 +72,16 @@ venv\Scripts\activate     # For Windows
 python main.py -d datasets/eccv16_dataset_summe_google_pool5.h5 -s datasets/summe_splits.json -m summe --gpu 0 --save-dir log/summe-split0 --split-id 0 --verbose
 ```
 
-## How to test
+## How to run the code
 ```bash
-python main.py -d datasets/eccv16_dataset_summe_google_pool5.h5 -s datasets/summe_splits.json -m summe --gpu 0 --save-dir log/summe-split0 --split-id 0 --evaluate --resume path_to_your_model.pth.tar --verbose --save-results
+#run the main program for initialization and building of extended HMDB51 datasets and all the transactional data, storing it in sqlite database [sqlite_model.db](). 
+python main.py 
+
+#Start the Server to run UHVID Validator for optimizing video sharing traffic across social network
+python server_model.py
+
+# Run the Client for Video Querying to optimise redundant identical video sharing
+python client_model.py 
 ```
 
 If argument `--save-results` is enabled, output results will be saved to `results.h5` under the same folder specified by `--save-dir`. To visualize the score-vs-gtscore, simple do
