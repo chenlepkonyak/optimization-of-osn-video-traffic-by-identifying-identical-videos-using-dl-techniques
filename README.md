@@ -2,7 +2,7 @@
 This repo contains the Python implementation of the TVC'25 paper - [Optimizing Social Media Video Traffic by Identifying Identical Videos using Deep Learning Techniques]. The original TensorFlow/PyTorch implementation can be found [here](https://github.com/chenlepkonyak/optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques). 
 
 <div align="center">
-  <img src="imgs/pipeline.jpg" alt="train" width="80%">
+  <img src="imgs/pipeline.png" alt="train" width="80%">
 </div>
 
 The main requirements are [pytorch]( https://www.tensorflow.org/) (`2.18.0`) and python `3.11`. Some dependencies that may not be installed in your machine are [moviepy](https://pypi.org/project/moviepy/), [kneed](https://pypi.org/project/kneed/), [opencv-python](https://pypi.org/project/opencv-python/), [scikit-learn](https://pypi.org/project/scikit-learn/), [scikit-image](https://pypi.org/project/scikit-image/), [scipy](https://pypi.org/project/scipy/), [pandas](https://pypi.org/project/pandas/) and [numpy](https://pypi.org/project/numpy/). Please install other missing dependencies.
