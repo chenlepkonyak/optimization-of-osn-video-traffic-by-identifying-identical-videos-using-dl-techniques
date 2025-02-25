@@ -41,6 +41,7 @@ Train and test codes are written in `main.py`. To see the detailed arguments, pl
 ## How to train
 ```bash
 📂 optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques
+│── __init__.py
 │── 📂 project_source_code
 │   │── 📂 database_modules
 │   │   ├── __init__.py
@@ -64,57 +65,17 @@ Train and test codes are written in `main.py`. To see the detailed arguments, pl
 │   │   ├── __init__.py
 │   │   ├── generator_server_videos_metadata.py
 │   │   ├── generator_users_videos_metadata.py
-│   │── 📂 database_modules
-│   │   ├── feature_extraction.py
-│   │   ├── hashing_methods.py
-│   │   ├── hashing_methods.py
-│   │   ├── hashing_methods.py
-│   │   ├── hashing_methods.py
-│   │── 📂 database_modules
-│   │   ├── feature_extraction.py
-│   │   ├── hashing_methods.py
-│   │   ├── hashing_methods.py
-│   │   ├── hashing_methods.py
-│   │   ├── hashing_methods.py
-│   │── 📂 model_modules
-│   │   ├── generate_csv.py
-│   │── server.py
-|── 📂 users_modules
-│   │   ├── feature_extraction.py
-│   │   ├── hashing_methods.py
-│   │── 📂 utils_modules
-│   │   ├── generate_csv.py
-│   │── server.py
-──  | videos_modules
-│   │   ├── feature_extraction.py
-│   │   ├── hashing_methods.py
-│   │── 📂 utils_modules
-│   │   ├── generate_csv.py
-│   │── server.py
-── 📂 videos_modules
-│   │   ├── feature_extraction.py
-│   │   ├── hashing_methods.py
-│   │── 📂 utils_modules
-│   │   ├── generate_csv.py
-│   │── server.py
-│── 📂 data
-│   │── 📂 train
-│   │── 📂 test
-│── 📂 data
-│   │── 📂 train
-│   │── 📂 test
-│── 📂 data
-│   │── 📂 train
-│   │── 📂 test
-│── 📂 data
-│   │── 📂 train
-│   │── 📂 test
-│── 📂 data
-│   │── 📂 train
-│   │── 📂 test
-│── README.md
-│── requirements.txt
+│   │── sqlite_model.db
+|── 📂 csv_data_directory
+|── 📂 imgs
+│   │   ├── pipeline.png
+|── 📂 videos_directory
+│── client_model.py
+│── server_model.py
 │── main.py
+│── README.md
+│── LICENSE
+
 
 python main.py -d datasets/eccv16_dataset_summe_google_pool5.h5 -s datasets/summe_splits.json -m summe --gpu 0 --save-dir log/summe-split0 --split-id 0 --verbose
 ```
