@@ -82,10 +82,10 @@ We preprocess data by extracting image features for videos and save them to `h5`
 
 ## Citation
 ```
-@article{zhou2017reinforcevsumm, 
-   title={Deep Reinforcement Learning for Unsupervised Video Summarization with Diversity-Representativeness Reward},
-   author={Zhou, Kaiyang and Qiao, Yu and Xiang, Tao}, 
-   journal={arXiv:1801.00054}, 
-   year={2017} 
+@article{konyak2025optimzingosntraffic, 
+   title={Optimization of Online Social Network video traffic by identifying identical videos using deeplearning techniques},
+   author={Konyak, C.Y and Baydeti, N}, 
+   journal={The Visual Computer}, 
+   year={2025} 
 }
 ```
