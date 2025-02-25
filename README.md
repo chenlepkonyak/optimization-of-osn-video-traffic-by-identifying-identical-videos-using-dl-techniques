@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# tensorflow-Optimizing-Social-Media-Video-Traffic-by-Identifying-Identical-Videos-using-Deep-Learning-Techniques
+#tensorflow-Optimizing-Social-Media-Video-Traffic-by-Identifying-Identical-Videos-using-Deep-Learning-Techniques
 This repo contains the Python implementation of the TVC'25 paper - [Optimizing Social Media Video Traffic by Identifying Identical Videos using Deep Learning Techniques]. The original TensorFlow/PyTorch implementation can be found [here](https://github.com/chenlepkonyak/optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques). 
 
 <div align="center">
@@ -89,7 +88,3 @@ We preprocess data by extracting image features for videos and save them to `h5`
    year={2017} 
 }
 ```
-=======
-# optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques
-Optimizing Social Media Video Traffic by Identifying Identical Videos using Deep Learning Techniques
->>>>>>> c185baa06ef03b46839aa1cdfccd05be2eb59d50
