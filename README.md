@@ -34,11 +34,7 @@ As a result, the dataset is randomly split for 5 times, which are saved as json 
 Train and test codes are written in `main.py`. To see the detailed arguments, please do `python main.py -h`.
 
 
-
-
-
-
-## How to train
+## Folder Structure
 ```bash
 📂 optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques
 │── __init__.py
@@ -122,7 +118,7 @@ python summary2video.py -p path_to/result.h5 -d path_to/video_frames -i 0 --fps 
 Please remember to specify the naming format of your video frames on this [line](https://github.com/KaiyangZhou/pytorch-vsumm-reinforce/blob/master/summary2video.py#L22).
 
 ## How to use your own data
-We preprocess data by extracting image features for videos and save them to `h5` file. The file format looks like [this](https://github.com/KaiyangZhou/vsumm-reinforce/issues/1#issuecomment-363492711). After that, you can make split via `create_split.py`. If you wanna train policy network using the entire dataset, just do `train_keys = dataset.keys()`. [Here](https://github.com/KaiyangZhou/pytorch-vsumm-reinforce/blob/master/main.py#L75) is the code where we initialize dataset. If you have any problems, feel free to contact me by email or raise an `issue`.
+We preprocess data by extracting image features for videos and save them to `csv` file. The file format looks like [this](https://zenodo.org/records/14922872/files/datasets_and_experimental_results.tar.gz), as in the setting of HMDB51 for experiments. which need to be updated in the [videos_directory](). [Here](https://github.com/chenlepkonyak/optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques/tree/main.py) is the code where we initialize dataset. If you have any problems, feel free to contact me by email or raise an `issue`.
 
 ## Citation
 ```
