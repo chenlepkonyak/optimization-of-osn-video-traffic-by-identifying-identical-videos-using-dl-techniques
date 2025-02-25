@@ -9,10 +9,11 @@ The main requirements are [pytorch]( https://www.tensorflow.org/) (`2.18.0`) and
 
 ## Get started
 1. Download preprocessed datasets
+
 ```bash
 git clone https://github.com/chenlepkonyak/optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques
-cd optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques
 
+cd optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques
 
 The [HMDB51](https://doi.org/10.1109/ICCV.2011.6126543) dataset is a large collection of realistic videos from various sources, including movies and web videos. The dataset is composed of 6,766 video clips from 51 action categories (such as “jump”, “kiss” and “laugh”), with each category containing at least 101 clips.  
 # download datasets_and_experimental_and_analysis_data.tar.gz (173.5MB) contains 1.Setting for HDM51 video Datasets for experiment, 2️.Self-Generated Datasets(server_users_metadata_db) and other 207+ files data accessed through sqlite database is also included which is used for results and analysis data(sever_all_traffic_db).
