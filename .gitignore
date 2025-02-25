@@ -3,6 +3,25 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Ignore the virtual environment
+venv/
+
+# Ignore SQLite database
+*.db
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore dataset files
+videos_directory/
+csv_data_directory/
+
+
 # User-specific files
 *.rsuser
 *.suo

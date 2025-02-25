@@ -68,8 +68,6 @@ venv\Scripts\activate     # For Windows
 │── README.md
 │── LICENSE
 
-
-python main.py -d datasets/eccv16_dataset_summe_google_pool5.h5 -s datasets/summe_splits.json -m summe --gpu 0 --save-dir log/summe-split0 --split-id 0 --verbose
 ```
 
 ## How to run the code
