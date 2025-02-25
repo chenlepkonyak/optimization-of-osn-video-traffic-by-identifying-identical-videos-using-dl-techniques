@@ -352,10 +352,7 @@ class GeneratorUHVIDdataVisualize:
 
       # Show the plot
       plt.show()
-
-      # Print the total number of image data available
-      print(f"Total number of image data: {total_images}")
-
+      
     def find_best_perplexity_kl_divergence(features_data):
       n_samples = features_data.shape[0]
       perplexity_values = [5, 10, 20, 30, 40, 50]
@@ -425,45 +422,7 @@ class GeneratorUHVIDdataVisualize:
       return eps
 
 
-    def generate_lstm_csv(self, closeset_frames_features_data_for_lstm, video_id_features, video_ids):
-
-      # Reshape the arrays to single rows
-      closest_frame_features_reshaped = closeset_frames_features_data_for_lstm.reshape(1, -1).tolist()[0]
-      video_id_features_reshaped = video_id_features.reshape(1, -1).tolist()[0]
-      video_ids_reshaped = video_ids.reshape(1, -1).tolist()[0]
-      dataFrame = {
-          'closest_frame_features': [closest_frame_features_reshaped],
-          'video_id_features': [video_id_features_reshaped]
-          ,'video_ids': [video_ids_reshaped]
-
-      }
-
-      delimiter = ','
-      datafeatureCSVname = "CSV_datafeatures.csv"
-      fileExists = os.path.isfile(datafeatureCSVname)
-
-      with open(datafeatureCSVname, 'a', newline='') as CSVFile:
-          csvHeader = ['closest_frame_features', 'video_id_features', 'video_ids']
-          writer = csv.DictWriter(CSVFile, fieldnames=csvHeader)
-          if not fileExists:
-              writer.writeheader()
-          # Write the data
-          writer.writerow({
-              'closest_frame_features': json.dumps(dataFrame['closest_frame_features']),
-              'video_id_features': json.dumps(dataFrame['video_id_features'])
-              ,'video_ids': json.dumps(dataFrame['video_ids'])
-          })
-
-      print(f"Data successfully written to {datafeatureCSVname}")
-
-    def create_lstm_model(self, batch_size, input_shape):
-      model = Sequential()
-      model.add(LSTM(256, return_sequences=True, batch_input_shape=(batch_size, *input_shape), stateful=True))
-      model.add(LSTM(128, return_sequences=False, stateful=True))
-      model.add(Dense(64, activation='sigmoid'))
-      return model
-
-
+      
     def create_gru_model(self, batch_size, input_shape):
       model = Sequential()
       model.add(GRU(256, return_sequences=True, input_shape= input_shape))
@@ -473,48 +432,14 @@ class GeneratorUHVIDdataVisualize:
 
       return model
 
-    def lstm_generate_video_id(self, closeset_frames_features_data_for_lstm):
-
-
-      # Define the input shape
-      closeset_frames_features_data_for_lstm = np.expand_dims(closeset_frames_features_data_for_lstm, axis=0)
-      batch_size = closeset_frames_features_data_for_lstm.shape[0]
-      print("batch_size") ###
-      print(batch_size) ###
-      input_shape = (closeset_frames_features_data_for_lstm.shape[1], closeset_frames_features_data_for_lstm.shape[2])
-      inputs = Input(shape=input_shape)
-      print("Expanded size of clossest frames") ###
-      print(closeset_frames_features_data_for_lstm.shape) ###
-
-      # Define the LSTM layers
-      x = LSTM(256, return_sequences=True)(inputs)
-      x = LSTM(128, return_sequences=False)(x)
-
-      # Define the feature layer
-      feature_layer = Dense(64, activation='sigmoid')(x)
-
-      # Create the model
-      base_model_lstm = self.create_lstm_model(batch_size, input_shape)
-      #base_model_lstm.summary()
-
-      # Get the features
-      lstm_video_id_features = []
-      lstm_video_id_features = base_model_lstm.predict(closeset_frames_features_data_for_lstm, verbose=0)
-      print("Feature vector shape:", lstm_video_id_features.shape)
-      return lstm_video_id_features
-
     def gru_generate_video_id(self, closeset_frames_features_data_for_gru):
 
       # Define the input shape
       closeset_frames_features_data_for_gru = np.expand_dims(closeset_frames_features_data_for_gru, axis=0)
-      batch_size = closeset_frames_features_data_for_gru.shape[0]
-      print("batch_size")  ###
-      print(batch_size)  ###
+      batch_size = closeset_frames_features_data_for_gru.shape[0]      
       input_shape = (closeset_frames_features_data_for_gru.shape[1], closeset_frames_features_data_for_gru.shape[2])
       inputs = Input(shape=input_shape)
-      print("Expanded size of clossest frames")
-      print(closeset_frames_features_data_for_gru.shape)
-
+      
       # Define the GRU layers
       x = GRU(256, return_sequences=True)(inputs)
       x = GRU(128, return_sequences=True)(x)
@@ -543,12 +468,7 @@ class GeneratorUHVIDdataVisualize:
       random.seed(seed)
       np.random.seed(seed)
       self.video_frames, self.imageframe = self.extract_frames(video)
-      self.features_data, self.feature_maps = self.extract_features(self.video_frames)
-
-      print(f"Video Frames Shape: {np.array(self.video_frames).shape}") ###
-      print(f"Feature Map Shape: {np.array(self.feature_maps).shape}") ###
-      print(f"Features Data Shape: {self.features_data.shape}") ###
-
+      self.features_data, self.feature_maps = self.extract_features(self.video_frames)   
       self.eps = self.determine_eps_from_graph(self.features_data) ###
 
       ###########################input parameters#############################
@@ -557,19 +477,10 @@ class GeneratorUHVIDdataVisualize:
 
       from sklearn.metrics import silhouette_score, davies_bouldin_score
 
-
-      silhouette = silhouette_score(self.features_data, self.labels)
-
-      print(f'Silhouette Score: {silhouette}')
-      print(f"labels : {len(self.labels)}") ###
-      print(f"unique_labels : {len(self.unique_labels)}")  ###
-      print(f"noise_indices: {len(self.noise_indices)}") ###
-      print(f"centroids: {len(self.centroids)}") ###
-      print(f"closest_frames: {len(self.closest_frames)}") ###
+      silhouette = silhouette_score(self.features_data, self.labels)      
       warnings.filterwarnings("ignore", category=UserWarning, module="keras.src.layers.rnn.rnn")
 
       self.plot_culsters2(self.features_data, self.unique_labels, self.labels)###
-
       self.closest_frames_indices, self.closest_frames_features_data = self.get_closest_frames(self.features_data, self.centroids)
 
       # Retrieve the video frames corresponding to the centroids

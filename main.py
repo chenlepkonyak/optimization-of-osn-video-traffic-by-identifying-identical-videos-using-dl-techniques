@@ -25,43 +25,6 @@ from module_code import visualize_modules
 from module_code.visualize_modules.generator_UHVID_data_visualize import *
 
 
-
-"""
-o1 = CreateModelDatabase()
-o2 = DBoperation()
-o3 = GenerateDataFrame()
-o4 = GenerateVideoSharingTraffic()
-o5 = GeneratorUHVIDdata()
-o6 = ServerModel()
-o7 = GenerateServerUsersMetadata()
-o8 = GeneratorUsersLocalStoreDB()
-o9 = GeneratorUsersMetadata()
-o10 = CreateUsersView()
-o11 = DisplayTablesAndViews()
-o12 = GenerateCSV()
-o13 = GeneratorServerVideosMetadata()
-O14 = GeneratorUsersVideosMetadata()
-o15 = ClientModel()
-
-o1 = 
-o2 = 
-o3 = GenerateDataFrame()
-o4 = GenerateVideoSharingTraffic()
-o5 = 
-o6 = ServerModel()
-o7 = 
-o8 = 
-o9 = 
-o10 = 
-                                    o11 = DisplayTablesAndViews()
-o12 =
-o13 = 
-O14 = 
-o15 = ClientModel()
-"""
-
-#print("Successful")
-
 def main():
 
     if len(sys.argv) > 1:
@@ -82,47 +45,9 @@ def main():
     DBoperation.displayTableContent()
     GeneratorServerVideosMetadata().generatorServerVideosMetadata()
     #GeneratorUsersVideosMetadata().generatorUsersVideosMetadata()
-
-    """
-    # Start the server in a separate thread
-    server_model = ServerModel()
-    server_thread = threading.Thread(target=server_model.start_server, daemon=True)
-    server_thread.start()
-    """
-    
-     
-
-    # Generate views and CSV
+    #Generate views and CSV
     CreateUsersView.generateviews()
-    GenerateCSV.dbtocsv()
-
-    """
-    CreateModelDatabase()
-    GeneratorUsersLocalStoreDB()
-    GenerateServerUsersMetadata()
-    GeneratorUsersVideosMetadata()
-    GeneratorServerVideosMetadata()
-    
-    
-    # Start the server in a separate thread
-    server_model = ServerModel()
-    server_thread = threading.Thread(target=server_model.start_server, daemon=True)
-    server_thread.start()
-
-    
-    # Start the client in a separate thread
-    client = ClientModel()
-    client_thread = threading.Thread(target=client.clientmodel)
-    client_thread.start()
-
-    # Wait for the client to complete execution
-    client_thread.join()
-    """
-    
-
-    # Generate views and CSV
-    #CreateUsersView.generateviews()
-    #GenerateCSV.dbtocsv()
+    GenerateCSV.dbtocsv()   
 
 if __name__ == "__main__":
     main()
