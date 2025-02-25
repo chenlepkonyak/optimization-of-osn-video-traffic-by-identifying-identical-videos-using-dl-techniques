@@ -4,17 +4,17 @@ import os
 from pathlib import Path
 import datetime
 from moviepy.video.io.VideoFileClip import VideoFileClip 
-from project_source_code import model_modules
-from project_source_code.model_modules.generator_UHVID_data import *
-from project_source_code.model_modules.generate_dataframe import *
-from project_source_code.model_modules.generate_video_sharing_traffic import *
-from project_source_code import utils_modules
-from project_source_code.utils_modules.create_users_view import *
-from project_source_code.utils_modules.generate_CSV import *
+from module_code import model_modules
+from module_code.model_modules.generator_UHVID_data import *
+from module_code.model_modules.generate_dataframe import *
+from module_code.model_modules.generate_video_sharing_traffic import *
+from module_code import utils_modules
+from module_code.utils_modules.create_users_view import *
+from module_code.utils_modules.generate_CSV import *
 
 class GeneratorUsersLocalStoreDB:
     def __init__(self):
-        print("Generating Local's user datastore sucessfully initiated")
+        print("Generating Local's user datastore initiated.....\n")
         pass
 
     @staticmethod

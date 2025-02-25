@@ -6,17 +6,17 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 import csv
 import sqlite3
 import datetime
-from project_source_code import database_modules
-from project_source_code.database_modules.create_model_database import *
-from project_source_code.database_modules.db_operation import *
-from project_source_code import model_modules
-from project_source_code.model_modules.generator_UHVID_data import *
-from project_source_code.model_modules.generate_dataframe import *
-from project_source_code.model_modules.generate_video_sharing_traffic import *
+from module_code import database_modules
+from module_code.database_modules.create_model_database import *
+from module_code.database_modules.db_operation import *
+from module_code import model_modules
+from module_code.model_modules.generator_UHVID_data import *
+from module_code.model_modules.generate_dataframe import *
+from module_code.model_modules.generate_video_sharing_traffic import *
 
 class GeneratorUsersVideosMetadata:
     def __init__(self):
-        print("Generating user's video metadata initiated.....")
+        print("Generating user's video metadata initiated.....\n")
         pass
      
     @staticmethod
@@ -94,9 +94,9 @@ class GeneratorUsersVideosMetadata:
         
 
         for user in selectedUserList:
-          print(user)
+          #print(user)
           for path, subdirs, files in os.walk(Path(f"videos_directory/{user}")):
-              print(path)
+              #print(path)
               for name in files:
                   print(name)
                   file_path = os.path.join(path, name)

@@ -10,13 +10,13 @@ import numpy as np
 import json
 from pathlib import Path
 import sqlite3
-from project_source_code import model_modules
-from project_source_code.model_modules.generator_UHVID_data import *
-from project_source_code.model_modules.generate_dataframe import *
-from project_source_code.model_modules.generate_video_sharing_traffic import *
-from project_source_code import utils_modules
-from project_source_code.utils_modules.create_users_view import *
-from project_source_code.utils_modules.generate_CSV import *
+from module_code import model_modules
+from module_code.model_modules.generator_UHVID_data import *
+from module_code.model_modules.generate_dataframe import *
+from module_code.model_modules.generate_video_sharing_traffic import *
+from module_code import utils_modules
+from module_code.utils_modules.create_users_view import *
+from module_code.utils_modules.generate_CSV import *
 
 class GenerateVideoSharingTraffic:
     def __init__(self):
@@ -30,7 +30,7 @@ class GenerateVideoSharingTraffic:
         self.requestedTimeStamp = datetime.datetime.now()
         self.application = " "
         self.dataFrame = {}
-        print("Video Sharing Traffic process sucessfully initiated")
+        print("Video Sharing Traffic process initiated......\n")
 
 
     def videotraffic(sender, videoFileName, receiver, r_application, count, mode):

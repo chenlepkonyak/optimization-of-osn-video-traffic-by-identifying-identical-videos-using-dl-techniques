@@ -7,18 +7,18 @@ import sqlite3
 import os
 import random
 import pathlib as Path
-from project_source_code import database_modules
-from project_source_code.database_modules.create_model_database import *
-from project_source_code.database_modules.db_operation import *
-from project_source_code import model_modules
-from project_source_code.model_modules.generator_UHVID_data import *
-from project_source_code.model_modules.generate_dataframe import *
-from project_source_code.model_modules.generate_video_sharing_traffic import *
+from module_code import database_modules
+from module_code.database_modules.create_model_database import *
+from module_code.database_modules.db_operation import *
+from module_code import model_modules
+from module_code.model_modules.generator_UHVID_data import *
+from module_code.model_modules.generate_dataframe import *
+from module_code.model_modules.generate_video_sharing_traffic import *
 
 class GeneratorUsersMetadata:
 
 	def __init__(self):
-		print("Generating user's metadata ")
+		print("Generating user's metadata initiated......\n")
 		pass
 
 	def generatorUsersMetadata():

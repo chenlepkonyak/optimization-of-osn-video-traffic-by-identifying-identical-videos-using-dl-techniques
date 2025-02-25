@@ -72,7 +72,7 @@ class GeneratorUHVIDdata:
       self.video_id_size_lstm = 0.0
       self.video = " "
       self.eps = 0.0
-      print("Generating UHVID data sucessfully initiated")
+      print("Generating UHVID data initiated......\n")
 
     def extract_frames(self, video):
       cap = cv2.VideoCapture(video)

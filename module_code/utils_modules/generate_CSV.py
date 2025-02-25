@@ -10,7 +10,7 @@ import time
 
 class GenerateCSV:
   def __init__(self):
-        print("Generating csv data sucessfully initiated")
+        print("Generating csv data initiated......\n")
         pass
    
   def export_query_to_csv(db_path, query, csv_folder, csv_filename):

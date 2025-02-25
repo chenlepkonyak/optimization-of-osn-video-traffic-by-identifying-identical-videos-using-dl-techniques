@@ -10,19 +10,19 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 import subprocess as sp
 import subprocess
 import json
-from project_source_code import database_modules
-from project_source_code.database_modules.create_model_database import *
-from project_source_code.database_modules.db_operation import *
-from project_source_code import model_modules
-from project_source_code.model_modules.generator_UHVID_data import *
-from project_source_code.model_modules.generate_dataframe import *
-from project_source_code.model_modules.generate_video_sharing_traffic import *
+from module_code import database_modules
+from module_code.database_modules.create_model_database import *
+from module_code.database_modules.db_operation import *
+from module_code import model_modules
+from module_code.model_modules.generator_UHVID_data import *
+from module_code.model_modules.generate_dataframe import *
+from module_code.model_modules.generate_video_sharing_traffic import *
 import pathlib
 
 
 class GeneratorServerVideosMetadata:
     def __init__(self):
-        print("Generating Server's video metadata sucessfully initiated")
+        print("Generating Server's video metadata initiated.....\n")
         pass
 
     """
@@ -56,14 +56,14 @@ class GeneratorServerVideosMetadata:
         connection = sqlite3.connect('sqlite_model.db')
         mycursor = connection.cursor()
 
-        print("Please wait generating Video metadata from the systems....")
+        print("Please wait generating Video metadata from the systems......\n")
 
         flag = 0
         root_dir = Path("videos_directory")
         for path, subdirs, files in os.walk(root_dir):
-            print(root_dir)
+            #print(root_dir)
             for name in files:
-              print(f"Hello {name} here genreated")
+              print(f"Genreated {name} video metada \n")
 
               if (flag==0):
                     # Check if the filename already exists in the database

@@ -3,7 +3,7 @@ import sqlite3
 
 class CreateUsersView:
     def __init__(self):
-        print("Creating user's view sucessfully initiated")
+        print("Creating user's view initiated......\n")
         pass
 
     @staticmethod

@@ -7,24 +7,24 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-from project_source_code import database_modules
-from project_source_code.database_modules.create_model_database import *
-from project_source_code.database_modules.db_operation import *
-from project_source_code import model_modules
-from project_source_code.model_modules.generator_UHVID_data import *
-from project_source_code.model_modules.generate_dataframe import *
-from project_source_code.model_modules.generate_video_sharing_traffic import *
-from project_source_code import users_modules
-from project_source_code.users_modules.generate_server_users_metadata import *
-from project_source_code.users_modules.generator_users_local_store_DB import *
-from project_source_code.users_modules.generator_users_metadata import *
-from project_source_code import utils_modules
-from project_source_code.utils_modules.create_users_view import *
-from project_source_code.utils_modules.generate_CSV import *
-from project_source_code.utils_modules.display_tables_and_views import *
-from project_source_code import videos_modules
-from project_source_code.videos_modules.generator_server_videos_metadata import *
-from project_source_code.videos_modules.generator_users_videos_metadata import *
+from module_code import database_modules
+from module_code.database_modules.create_model_database import *
+from module_code.database_modules.db_operation import *
+from module_code import model_modules
+from module_code.model_modules.generator_UHVID_data import *
+from module_code.model_modules.generate_dataframe import *
+from module_code.model_modules.generate_video_sharing_traffic import *
+from module_code import users_modules
+from module_code.users_modules.generate_server_users_metadata import *
+from module_code.users_modules.generator_users_local_store_DB import *
+from module_code.users_modules.generator_users_metadata import *
+from module_code import utils_modules
+from module_code.utils_modules.create_users_view import *
+from module_code.utils_modules.generate_CSV import *
+from module_code.utils_modules.display_tables_and_views import *
+from module_code import videos_modules
+from module_code.videos_modules.generator_server_videos_metadata import *
+from module_code.videos_modules.generator_users_videos_metadata import *
 
 
 class ServerModel:
@@ -34,7 +34,7 @@ class ServerModel:
         self.port = port
         self.server_socket = None
         self.flag = 0
-        print("Server model  initiated successfully")
+        print("Server model  initiated......\n")
 
     def updateTrafficData(self, df):
         retry_count = 0

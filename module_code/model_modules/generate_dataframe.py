@@ -10,8 +10,8 @@ import datetime
 import numpy as np
 import json
 from pathlib import Path
-from project_source_code import model_modules
-from project_source_code.model_modules.generator_UHVID_data import *
+from module_code import model_modules
+from module_code.model_modules.generator_UHVID_data import *
 
 
 class GenerateDataFrame:
@@ -27,7 +27,7 @@ class GenerateDataFrame:
         self.requestedTimeStamp = datetime.datetime.now()
         self.application = " "
         self.dataFrame = {}
-        print("Generating DataFrame for video sharing sucessfully initiated")
+        print("Generating DataFrame for video sharing initiated......\n")
 
     @staticmethod
     def generateDataFrame(sender, videoFileName, receiver, r_application, count, mode):   

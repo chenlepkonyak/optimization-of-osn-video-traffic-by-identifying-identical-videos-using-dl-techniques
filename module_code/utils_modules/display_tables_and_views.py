@@ -3,7 +3,7 @@ import sqlite3
 
 class DisplayTablesAndViews:
     def __init__(self):
-        print("Displaying table and views sucessfully initiated")
+        print("Displaying table and views initiated......\n")
         pass
 
     def displayTablesAndViews(database_path):

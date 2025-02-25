@@ -7,13 +7,13 @@ import sqlite3
 import pandas as pd
 import datetime
 
-from project_source_code import database_modules
-from project_source_code.database_modules.create_model_database import *
-from project_source_code.database_modules.db_operation import *
+from module_code import database_modules
+from module_code.database_modules.create_model_database import *
+from module_code.database_modules.db_operation import *
 
 class DBoperation:
     def __init__(self):
-        print("DBoperation successfully initiated")
+        print("DBoperation initiated.....\n")
   
     @staticmethod
     def usersPushNotificationsDB(user, df):
