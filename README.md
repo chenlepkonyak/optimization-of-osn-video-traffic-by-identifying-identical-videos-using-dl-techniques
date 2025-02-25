@@ -23,16 +23,99 @@ tar -xvzf datasets_and_experimental_results.tar.gz
 ```
 
 
-2. Make splits
+2. Set Up Virtual Environment
 ```bash
-python create_split.py -d datasets/eccv16_dataset_summe_google_pool5.h5 --save-dir datasets --save-name summe_splits  --num-splits 5
+python -m venv venv
+source venv/bin/activate  # For Linux/macOS
+venv\Scripts\activate     # For Windows
 ```
 As a result, the dataset is randomly split for 5 times, which are saved as json file.
 
 Train and test codes are written in `main.py`. To see the detailed arguments, please do `python main.py -h`.
 
+
+
+
+
+
 ## How to train
 ```bash
+📂 optimization-of-osn-video-traffic-by-identifying-identical-videos-using-dl-techniques
+│── 📂 project_source_code
+│   │── 📂 database_modules
+│   │   ├── __init__.py
+│   │   ├── create_model_database.py
+│   │   ├── db_operation.py
+│   │── 📂 model_modules
+│   │   ├── __init__.py
+│   │   ├── generate_dataframe.py
+│   │   ├── generate_video_sharing_traffic.py
+│   │   ├── generator_UHVID_data.py
+│   │── 📂 users_modules
+│   │   ├── __init__.py
+│   │   ├── generate_server_users_metadata.py
+│   │   ├── generator_users_metadata.py
+│   │── 📂 utils_modules
+│   │   ├── __init__.py
+│   │   ├── create_users_view.py
+│   │   ├── display_tables_and_views.py
+│   │   ├── generate_CSV.py
+│   │── 📂 videos_modules
+│   │   ├── __init__.py
+│   │   ├── generator_server_videos_metadata.py
+│   │   ├── generator_users_videos_metadata.py
+│   │── 📂 database_modules
+│   │   ├── feature_extraction.py
+│   │   ├── hashing_methods.py
+│   │   ├── hashing_methods.py
+│   │   ├── hashing_methods.py
+│   │   ├── hashing_methods.py
+│   │── 📂 database_modules
+│   │   ├── feature_extraction.py
+│   │   ├── hashing_methods.py
+│   │   ├── hashing_methods.py
+│   │   ├── hashing_methods.py
+│   │   ├── hashing_methods.py
+│   │── 📂 model_modules
+│   │   ├── generate_csv.py
+│   │── server.py
+|── 📂 users_modules
+│   │   ├── feature_extraction.py
+│   │   ├── hashing_methods.py
+│   │── 📂 utils_modules
+│   │   ├── generate_csv.py
+│   │── server.py
+──  | videos_modules
+│   │   ├── feature_extraction.py
+│   │   ├── hashing_methods.py
+│   │── 📂 utils_modules
+│   │   ├── generate_csv.py
+│   │── server.py
+── 📂 videos_modules
+│   │   ├── feature_extraction.py
+│   │   ├── hashing_methods.py
+│   │── 📂 utils_modules
+│   │   ├── generate_csv.py
+│   │── server.py
+│── 📂 data
+│   │── 📂 train
+│   │── 📂 test
+│── 📂 data
+│   │── 📂 train
+│   │── 📂 test
+│── 📂 data
+│   │── 📂 train
+│   │── 📂 test
+│── 📂 data
+│   │── 📂 train
+│   │── 📂 test
+│── 📂 data
+│   │── 📂 train
+│   │── 📂 test
+│── README.md
+│── requirements.txt
+│── main.py
+
 python main.py -d datasets/eccv16_dataset_summe_google_pool5.h5 -s datasets/summe_splits.json -m summe --gpu 0 --save-dir log/summe-split0 --split-id 0 --verbose
 ```
 
