@@ -82,39 +82,11 @@ python server_model.py
 python client_model.py 
 ```
 
-If argument `--save-results` is enabled, output results will be saved to `results.h5` under the same folder specified by `--save-dir`. To visualize the score-vs-gtscore, simple do
+## Visualize main algorithm for generation of UHVID
+You can use `generator_UHVID_data.py` to generate the uhvid of the video. You need to have a directory containing video which should be extended HMDB51 datasets with user generated data as [here] (https://zenodo.org/records/14922872/files/datasets_and_experimental_results.tar.gz) . Ino order to visualize the generation of uhvid, the following command can also be inputted with the video file from the Terminal. 
+
 ```bash
-python visualize_results.py -p path_to/result.h5
-```
-
-## Plot
-We provide codes to plot the rewards obtained at each epoch. Use `parse_log.py` to plot the average rewards
-```bash
-python parse_log.py -p path_to/log_train.txt
-```
-The plotted image would look like
-<div align="center">
-  <img src="imgs/overall_reward.png" alt="overall_reward" width="50%">
-</div>
-
-If you wanna plot the epoch-reward curve for some specific videos, do
-```bash
-python parse_json.py -p path_to/rewards.json -i 0
-```
-
-You will obtain images like
-<div align="center">
-  <img src="imgs/epoch_reward_0.png" alt="epoch_reward" width="30%">
-  <img src="imgs/epoch_reward_13.png" alt="epoch_reward" width="30%">
-  <img src="imgs/epoch_reward_15.png" alt="epoch_reward" width="30%">
-</div>
-
-If you prefer to visualize the epoch-reward curve for all training videos, try `parse_json.sh`. Modify the code according to your purpose.
-
-## Visualize summary
-You can use `summary2video.py` to transform the binary `machine_summary` to real summary video. You need to have a directory containing video frames. The code will automatically write summary frames to a video where the frame rate can be controlled. Use the following command to generate a `.mp4` video
-```bash
-python summary2video.py -p path_to/result.h5 -d path_to/video_frames -i 0 --fps 30 --save-dir log --save-name summary.mp4
+python main.py "CarTwHeeL_PerFecT_cartwheel_f_cm_np1_le_med_0.avi" # replace with any video file
 ```
 Please remember to specify the naming format of your video frames on this [line](https://github.com/KaiyangZhou/pytorch-vsumm-reinforce/blob/master/summary2video.py#L22).
 

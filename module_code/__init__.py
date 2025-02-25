@@ -21,4 +21,6 @@ from module_code import videos_modules
 from module_code.videos_modules.generator_server_videos_metadata import *
 from module_code.videos_modules.generator_users_videos_metadata import *
 
+from module_code import visualize_modules
+from module_code.visualize_modules.generator_UHVID_data_visualize import *
 

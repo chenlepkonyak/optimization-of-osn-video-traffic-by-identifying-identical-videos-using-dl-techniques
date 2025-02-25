@@ -21,6 +21,9 @@ from module_code.utils_modules.display_tables_and_views import *
 from module_code import videos_modules
 from module_code.videos_modules.generator_server_videos_metadata import *
 from module_code.videos_modules.generator_users_videos_metadata import *
+from module_code import visualize_modules
+from module_code.visualize_modules.generator_UHVID_data_visualize import *
+
 
 
 """
@@ -59,8 +62,14 @@ o15 = ClientModel()
 
 #print("Successful")
 
-
 def main():
+
+    if len(sys.argv) > 1:
+        # If an argument is provided, process only the video for visualization of uhvid generation
+        video_path = sys.argv[1]
+        uhvidid = GeneratorUHVIDdataVisualize().generatorUHVIDdataVisualize(video_path)
+        #print(f"Generated UHVID: {uhvidid}")
+        sys.exit(0) 
 
     sql_database_path = "sqlite_model.db"	#Replace with your own path for sqlite database
     video_path = "videos_directory"	#Replace with your own path for vidoes datasets
