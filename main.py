@@ -12,7 +12,6 @@ from module_code.model_modules.generate_dataframe import *
 from module_code.model_modules.generate_video_sharing_traffic import *
 from module_code import users_modules
 from module_code.users_modules.generate_server_users_metadata import *
-from module_code.users_modules.generator_users_local_store_DB import *
 from module_code.users_modules.generator_users_metadata import *
 from module_code import utils_modules
 from module_code.utils_modules.create_users_view import *
@@ -43,8 +42,8 @@ def main():
     GeneratorUsersMetadata.generatorUsersMetadata()
     GenerateServerUsersMetadata().generateServerUsersMetadata()
     DBoperation.displayTableContent()
-    GeneratorServerVideosMetadata().generatorServerVideosMetadata()
-    GeneratorUsersVideosMetadata().generatorUsersVideosMetadata()
+    #GeneratorServerVideosMetadata().generatorServerVideosMetadata()
+    #GeneratorUsersVideosMetadata().generatorUsersVideosMetadata()
     #Generate views and CSV
     CreateUsersView.generateviews()
     GenerateCSV.dbtocsv()   
