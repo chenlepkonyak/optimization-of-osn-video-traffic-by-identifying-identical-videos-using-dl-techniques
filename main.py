@@ -38,13 +38,13 @@ def main():
     video_path = "videos_directory"	#Replace with your own path for vidoes datasets
     csv_data_path = "csv_data_directory"	#Replace with your own path for csv data
     #DBoperation.DropAllTablesAndViews(sql_database_path)
-    CreateModelDatabase().createModelDatabase()
+    #CreateModelDatabase().createModelDatabase()
     DisplayTablesAndViews.displayTablesAndViews(sql_database_path)
     GeneratorUsersMetadata.generatorUsersMetadata()
     GenerateServerUsersMetadata().generateServerUsersMetadata()
     DBoperation.displayTableContent()
     GeneratorServerVideosMetadata().generatorServerVideosMetadata()
-    #GeneratorUsersVideosMetadata().generatorUsersVideosMetadata()
+    GeneratorUsersVideosMetadata().generatorUsersVideosMetadata()
     #Generate views and CSV
     CreateUsersView.generateviews()
     GenerateCSV.dbtocsv()   

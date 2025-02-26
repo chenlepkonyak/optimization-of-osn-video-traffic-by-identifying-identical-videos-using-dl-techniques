@@ -21,64 +21,7 @@ class GeneratorUsersMetadata:
 		print("Generating user's metadata initiated......\n")
 		pass
 
-	def generatorUsersMetadata():
-		"""
-		connection =sqlite3.connect('sqlite_model.db')
-		mycursor = connection.cursor()
-		query = f"select count(*) from server_users_metadata_db"
-		mycursor.execute(query)
-		usersList = mycursor.fetchall()
-		mycursor.execute(query)
-		connection.commit()
-		connection.close()		
-
-		user_id = usersList[0][0]
-		fileExists = os.path.isfile(trafficDataCSVFileName)
-  
-		with open(trafficDataCSVFileName, 'a', newline='') as CSVFile:
-			csvHeader = ['USER_NAME', 'MAC_ID', 'MNO_ID', 'MNO_NAME', 'PLMN_ID','PLMN_NAME' ]
-			writer = csv.DictWriter(CSVFile, fieldnames = csvHeader)
-
-			if not fileExists:
-				writer.writeheader()
-
-			i =0
-			no_of_users = input('Enter no. of users: ')
-			while i < int(no_of_users):
-				
-				#user_id += 1
-				#user_name = "User"+str(user_id)
-				#macid = random.randint(111111111111111, 999999999999999)
-				# macid = 123658568936176 #Real MACID
-				#mac_hex = hex(macid).replace('0x', '').upper()
-				#Formatted_MACID = '-'.join(mac_hex[i: i + 2] for i in range(0, 11, 2))
-				
-				
-				macid = random.randint(111111111111111, 999999999999999)
-				# macid = 123658568936176 #Real MACID
-				mac_hex = hex(macid).replace('0x', '').upper()
-				Formatted_MACID = '-'.join(mac_hex[i: i + 2] for i in range(0, 11, 2))
-				user_id += 1
-				user_name = "User" + str(user_id) + "_" + str(macid)
-				macid = Formatted_MACID
-				mno_id = random.randint(1,99)
-				mno_name = "mno_" +str(mno_id)
-				plmn_id = random.randint(100,300)
-				plmn_name = "plmn_" +str(plmn_id)		
-
-				connection = sqlite3.connect('sqlite_model.db')
-				mycursor = connection.cursor()
-				query = '''
-						INSERT INTO users_metadata_db (user_name, mac_id, mno_id, mno_name, plmn_id, plmn_name)
-						VALUES (?, ?, ?, ?, ?, ?)
-					'''
-				mycursor.execute(query, (user_name, Formatted_MACID, mno_id, mno_name, plmn_id, plmn_name))
-				connection.commit()  
-
-				i += 1
-
-				writer.writerow({'USER_NAME': user_name, 'MAC_ID': macid, 'MNO_ID': mno_id, 'MNO_NAME': mno_name, 'PLMN_ID': plmn_id,'PLMN_NAME': plmn_name })
-			"""
+	def generatorUsersMetadata():	
 		
 		user_name = " "
 		connection = sqlite3.connect('sqlite_model.db')
@@ -119,10 +62,8 @@ class GeneratorUsersMetadata:
 			directory = user_name
 			
 			parent_dir = "videos_directory"            
-			path = os.path.join(parent_dir, directory)		
-			os.makedirs(path, exist_ok=True)			
-			
-
+			path = os.path.join(parent_dir, directory)
+			os.makedirs(path, exist_ok=True)		
 			mno_id = random.randint(1, 99)
 			mno_name = "mno_" + str(mno_id)
 			plmn_id = random.randint(100, 300)
