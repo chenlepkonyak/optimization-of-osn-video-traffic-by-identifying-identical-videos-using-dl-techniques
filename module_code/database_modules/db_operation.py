@@ -19,7 +19,7 @@ class DBoperation:
     def usersPushNotificationsDB(user, df):
 
         userDatabase = user + "_push_notification_db"
-        connection = sqlite3.connect('/sqlite_model.db')
+        connection = sqlite3.connect('sqlite_model.db')
         columns = ', '.join(f'"{str(x).replace("/", "_")}"' for x in df.keys())
         values = ', '.join(f'"{str(x).replace("/", "_")}"' for x in df.values())
         query = f'INSERT INTO {userDatabase} ({columns}) VALUES ({values});'
@@ -30,11 +30,12 @@ class DBoperation:
 
     @staticmethod
     def updateLocalStore(df):
-        connection = sqlite3.connect('/sqlite_model.db')
+        print("\n updatelocal store initiated.....")
+        connection = sqlite3.connect('sqlite_model.db')
         video_name = df.get('video_name')
         user = df.get('receiver')
         receiver_application = df.get('receiver_application')
-        location = f"/video_dataset_directory/{user}/{receiver_application}/{video_name}"
+        location = f"videos_directory/{user}/{receiver_application}/{video_name}"
         category = df.get('mode')
 
         video_size = df.get('size')
@@ -64,6 +65,41 @@ class DBoperation:
         connection.commit()
 
     def displayTableContent():
+
+        try:
+            conn = sqlite3.connect('sqlite_model.db')
+            cursor = conn.cursor()
+
+            # Fetch all available tables in the database
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            tables = cursor.fetchall()
+            table_names = [table[0] for table in tables]
+
+            print("\nAvailable Tables:")
+            for i, table in enumerate(table_names, start=1):
+                print(f"{i}. {table}")
+
+            choice = int(input("\nEnter the number of the table you want to display: ")) - 1
+
+            if 0 <= choice < len(table_names):
+                selected_table = table_names[choice]
+                cursor.execute(f"SELECT * FROM {selected_table};")
+                results = cursor.fetchall()
+
+                print(f"\nContents of '{selected_table}': {len(results)} rows found")
+                for row in results:
+                    print(row)
+            else:
+                print("Invalid choice!")
+
+        except sqlite3.Error as e:
+            print(f"Error: {e}")
+
+        finally:
+            conn.close()
+        
+    """
+    
         try:
             conn = sqlite3.connect('sqlite_model.db')
             cursor = conn.cursor()
@@ -79,7 +115,7 @@ class DBoperation:
             #cursor.execute("SELECT * FROM User2_113129666386352_push_notification_db;")
             results = cursor.fetchall()
 
-            print(f"Details of users in teh user's database: {len(results)}")
+            print(f"Details of users in the user's database: {len(results)}")
             for row in results:
                 print(row)
 
@@ -103,7 +139,7 @@ class DBoperation:
 
         except sqlite3.OperationalError as e:
             print(".")
-
+    """
     import sqlite3
 
     def GetAllTablesAndViews(db_path):

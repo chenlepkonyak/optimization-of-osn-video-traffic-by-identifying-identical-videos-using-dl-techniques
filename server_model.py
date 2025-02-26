@@ -118,10 +118,10 @@ class ServerModel:
 
 
             if flag == 1:
-                print("Deferred")
+                print("Video push notification Deferred")
                 table_name = 'server_push_notification_deferred_db'
             else:
-                print("Accepted")
+                print("Video push notification Accepted")
                 table_name = 'server_push_notification_accepted_db'
 
             columns = ', '.join(f'"{str(x).replace("/", "_")}"' for x in df.keys())
@@ -157,7 +157,7 @@ class ServerModel:
 
             df = json.loads(request)
             #update traffic database
-            self.updateTrafficData(df)
+            self.updateTrafficData(df)            
             #compare uhv database
             self.compareUHVIDdata(df)
             #accepted or deferred database
